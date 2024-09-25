@@ -32,7 +32,6 @@ class TaskListForm(forms.Form):
     title =  forms.CharField(max_length=100, required=False)
     status_id =  forms.IntegerField(required=False)
     pagination = PaginationField()
-
     # Making simple using PaginationField
     # def clean(self, value):
     #     super().clean()
@@ -45,6 +44,7 @@ class TaskListForm(forms.Form):
 
     #     return self.cleaned_data
 
-
+class TaskChangeStatusForm(forms.Form):
+    status_id =  forms.IntegerField(required=True)
 
 

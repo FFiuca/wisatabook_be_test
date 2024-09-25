@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from rest_framework import viewsets, mixins, generics, parsers
 from rest_framework.response import Response
-from .src.forms import TaskForm, TaskListForm
+from rest_framework.decorators import action
+from .src.forms import TaskForm, TaskListForm, TaskChangeStatusForm
 from django.forms import ValidationError, model_to_dict
 from .src.usecase import TaskUseCaseImpl
 
@@ -51,6 +52,21 @@ class TaskView(viewsets.ViewSet):
         return Response(data={
             'status': 200,
             'data' : data
+        }, status=200)
+
+    def change_status(self, request, pk=None):
+        data  = request.data
+        # print(pk)
+        form = TaskChangeStatusForm(data=data)
+        if form.is_valid() is False:
+            raise ValidationError("Validation error")
+
+        cls = TaskUseCaseImpl()
+        data = cls.change_status(pk, form.cleaned_data['status_id'])
+
+        return Response(data={
+            'status': 200,
+            'data' : model_to_dict(data)
         }, status=200)
 
     def update(self, request, pk=None):

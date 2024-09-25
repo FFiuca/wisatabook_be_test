@@ -57,6 +57,22 @@ class FeatureTest(APITestCase):
         self.assertTrue(resp.status_code==200)
         self.assertTrue(task.deleted is not None)
 
+    def test_change_status(self):
+        task = TaskFactory.create()
+        task_repeat = TaskRepeatFactory.create_batch(3, task=task)
+
+        data = {
+            'status_id': 2
+        }
+
+        resp = self.client.patch(reverse('todo:task-change-status', args=[task.pk]), data=json.dumps(data),  content_type='application/json')
+
+        # print(resp.json())
+
+        task.refresh_from_db()
+        self.assertTrue(resp.status_code==200)
+        self.assertTrue(task.status_id==data['status_id'])
+
     def test_list(self):
         task = TaskFactory.create_batch(20)
         task_repeat = []

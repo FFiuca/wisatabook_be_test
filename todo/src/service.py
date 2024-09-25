@@ -43,7 +43,7 @@ class TaskService(repositories.CRUDBase, repositories.ListBase):
     def change_status(self, id:int, status_id:int) -> m_django.Model:
         task = self.task.objects.get(pk=id)
 
-        task.status = m_master.Status.objects.get(status_id)
+        task.status = m_master.Status.objects.get(pk=status_id)
         task.save()
 
         return task
