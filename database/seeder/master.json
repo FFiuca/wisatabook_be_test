@@ -1,0 +1,1 @@
+[{"model": "master.status", "pk": 1, "fields": {"deleted": null, "deleted_by_cascade": false, "name": "Active", "created_at": "2024-10-10T00:00:00Z", "updated_at": "2024-10-10T00:00:00Z"}}, {"model": "master.status", "pk": 2, "fields": {"deleted": null, "deleted_by_cascade": false, "name": "Non Active", "created_at": "2024-10-10T00:00:00Z", "updated_at": "2024-10-10T00:00:00Z"}}]
