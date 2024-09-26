@@ -19,6 +19,7 @@ class Task(SafeDeleteModel, models.Model):
     title = models.CharField(max_length=100, blank=False)
     starred_status  = models.BooleanField(default=False)
     description = models.TextField(blank=True)
+    due_date = models.DateField(blank=True, default=None, null=True)
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True, blank=True)
 

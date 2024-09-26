@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt.token_blacklist',
     "safedelete",
     "django_seed",
+    "corsheaders",
 
     # apps
     "todo",
@@ -52,6 +53,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -200,3 +202,6 @@ EMAIL_HOST_PASSWORD=env('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS=env('EMAIL_USE_TLS')
 EMAIL_FROM_ADDRESS=env('EMAIL_FROM_ADDRESS')
 EMAIL_FROM_NAME=env('EMAIL_FROM_NAME')
+
+# DJANGO CORS
+CORS_ALLOW_ALL_ORIGINS=True

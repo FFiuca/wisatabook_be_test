@@ -3,7 +3,7 @@ from django import forms
 
 class PaginationField(forms.Field):
     def validate(self, value):
-        if not isinstance(value, (dict, map,)):
+        if not isinstance(value, (dict, map)):
             raise forms.ValidationError("Invalid pagination value")
         if value.get('page') is None:
             raise forms.ValidationError("Page number is required")
@@ -27,6 +27,7 @@ class TaskForm(forms.Form):
     title =  forms.CharField(max_length=100, required=True)
     description = forms.CharField(max_length=5000, required=False)
     data_task_repeat = ListField(required=False)
+    due_date = forms.DateField(required=False)
 
 class TaskListForm(forms.Form):
     title =  forms.CharField(max_length=100, required=False)

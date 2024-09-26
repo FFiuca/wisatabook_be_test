@@ -24,6 +24,7 @@ class TaskService(repositories.CRUDBase, repositories.ListBase):
 
         task.title = data['title']
         task.description = data['description']
+        task.due_date = data['due_date']
 
         task.save()
         # update = self.task.objects.filter(id=id).update(**data)
