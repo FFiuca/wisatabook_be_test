@@ -1,80 +1,80 @@
-# To-Do Application
+# <font color="blue">To-Do Application</font>
 
-## Tech Stack
+## <font color="green">Tech Stack</font>
 
 * **Backend:**
-  + **Framework:** Django (Python framework)
-  + **API Framework:** Django Rest Framework (DRF)
-  + **Database:** PostgreSQL
+  + **Framework:** <font color="blue">Django (Python framework)</font>
+  + **API Framework:** <font color="blue">Django Rest Framework (DRF)</font>
+  + **Database:** <font color="blue">PostgreSQL</font>
 * **Frontend:**
-  + **Framework:** React
-  + **UI Library:** Bootstrap
+  + **Framework:** <font color="blue">React</font>
+  + **UI Library:** <font color="blue">Bootstrap</font>
 * **Testing:**
-  + **Backend:** Django's built-in testing framework, with APITestCase for API testing
-* **Factories:** Factory Boy for generating test data
-* **Fixtures:** Django's built-in fixtures for loading initial data
+  + **Backend:** <font color="blue">Django's built-in testing framework, with APITestCase for API testing</font>
+* **Factories:** <font color="blue">Factory Boy for generating test data</font>
+* **Fixtures:** <font color="blue">Django's built-in fixtures for loading initial data</font>
 
-## Deployment
+## <font color="green">Deployment</font>
 
-The To-Do Application is deployed on Google Cloud Platform (GCP) using the following stack:
+The To-Do Application is deployed on <font color="blue">Google Cloud Platform (GCP)</font> using the following stack:
 
-* **Web Server:** Gunicorn
-* **Reverse Proxy:** Nginx
-* **Cloud Platform:** Google Cloud Platform (GCP)
+* **Web Server:** <font color="blue">Gunicorn</font>
+* **Reverse Proxy:** <font color="blue">Nginx</font>
+* **Cloud Platform:** <font color="blue">Google Cloud Platform (GCP)</font>
 
-## Use Case System
+## <font color="green">Use Case System</font>
 
 The To-Do Application is a web-based system that allows users to create, manage, and track their tasks. The system provides a simple and intuitive interface for users to organize their tasks and stay productive.
 
-### Use Cases
+### <font color="green">Use Cases</font>
 
-#### Task Creation:
+#### <font color="blue">Task Creation:</font>
 
 * Primary Actor: User
 * Goal: Create a new task with a title, description, and optional task repeats.
 * Triggers: User clicks the "Create Task" button.
 * Description: The system creates a new task and adds it to the user's task list.
 
-#### Task Listing:
+#### <font color="blue">Task Listing:</font>
 
 * Primary Actor: User
 * Goal: View a list of tasks with pagination and filtering options.
 * Triggers: User navigates to the task list page.
 * Description: The system displays a list of tasks, with options to filter and paginate.
 
-#### Task Detail:
+#### <font color="blue">Task Detail:</font>
 
 * Primary Actor: User
 * Goal: View detailed information about a specific task, including its title, description, and task repeats.
 * Triggers: User clicks on a task in the task list.
 * Description: The system displays the task detail page, showing the task's information.
 
-#### Task Deletion:
+#### <font color="blue">Task Deletion:</font>
 
 * Primary Actor: User
 * Goal: Delete a task and its associated task repeats.
 * Triggers: User clicks the "Delete" button on a task.
 * Description: The system deletes the task and its associated task repeats.
 
-#### Task Status Update:
+#### <font color="blue">Task Status Update:</font>
 
 * Primary Actor: User
 * Goal: Update the status of a task.
 * Triggers: User clicks the "Update Status" button on a task.
 * Description: The system updates the task's status.
 
-#### Task Starred Status Update:
+#### <font color="blue">Task Starred Status Update:</font>
 
 * Primary Actor: User
 * Goal: Update the starred status of a task.
 * Triggers: User clicks the "Update Starred Status" button on a task.
 * Description: The system updates the task's starred status.
 
-## Scheduler Feature
+## <font color="green">Scheduler Feature</font>
 
-The To-Do Application features a scheduler that runs every night to create new repeated tasks. This is achieved using a cron job that hits the command `python3 manage.py repeated_task_command` until the due date end. This ensures that repeated tasks are automatically created and added to the user's task list.
+The To-Do Application features a scheduler that runs <font color="red">every night</font> to create new repeated tasks. This is achieved using a cron job that hits the command `python3 manage.py repeated_task_command` until the due date end. This ensures that repeated tasks are automatically created and added to the user's task list.
 
-## System Architecture
+## <font color="green">System Architecture</font>
 
 The To-Do Application is built using a layered architecture, with the following components:
 
@@ -83,10 +83,10 @@ The To-Do Application is built using a layered architecture, with the following 
 3. **Repository Interface:** Defines the interface for accessing and manipulating data.
 4. **Database:** Stores task data and provides data persistence.
 
-## Frontend Architecture
+## <font color="green">Frontend Architecture</font>
 
-The frontend of the To-Do Application is built using React and Bootstrap. The application is designed to be responsive and user-friendly, with a simple and intuitive interface.
+The frontend of the To-Do Application is built using <font color="blue">React</font> and <font color="blue">Bootstrap</font>. The application is designed to be responsive and user-friendly, with a simple and intuitive interface.
 
-## Testing
+## <font color="green">Testing</font>
 
-The To-Do Application uses a combination of unit tests, integration tests, and API tests to ensure the system's functionality and reliability. The testing framework is built using Django's built-in testing tools, with APITestCase for API testing.
+The To-Do Application uses a combination
