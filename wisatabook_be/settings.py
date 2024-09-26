@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     "safedelete",
     "django_seed",
     "corsheaders",
-    "django_crontab",
 
     # apps
     "todo",
