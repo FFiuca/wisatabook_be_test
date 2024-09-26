@@ -17,7 +17,9 @@ APP_NAME=env('APP_NAME')
 SECRET_KEY = env('SECRET_KEY')
 DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '34.128.122.153'
+]
 
 
 # Application definition
