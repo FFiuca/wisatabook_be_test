@@ -48,6 +48,14 @@ class TaskService(repositories.CRUDBase, repositories.ListBase):
 
         return task
 
+    def change_starred_status(self, id:int, starred_status:int) -> m_django.Model:
+        task = self.task.objects.get(pk=id)
+
+        task.starred_status = starred_status
+        task.save()
+
+        return task
+
     def list(self, param: map, pagination: map|None):
         q = self.task.objects.prefetch_related('task_to_task_repeat', 'status')
         if param.get('title') is not None:

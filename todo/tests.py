@@ -82,6 +82,20 @@ class FeatureTest(APITestCase):
         self.assertTrue(resp.status_code==200)
         self.assertTrue(task.status_id==data['status_id'])
 
+    def test_change_starred_status(self):
+        task = TaskFactory.create()
+        task_repeat = TaskRepeatFactory.create_batch(3, task=task)
+
+        data = {
+            'starred_status': 1
+        }
+
+        resp = self.client.patch(reverse('todo:task-change-starred-status', args=[task.pk]), data=json.dumps(data),  content_type='application/json')
+
+        task.refresh_from_db()
+        self.assertTrue(resp.status_code==200)
+        self.assertTrue(task.starred_status==data['starred_status'])
+
     # This test case verifies the functionality of creating tasks and their repetitions. It creates a batch of tasks and associated task repetitions, then sends a POST request to the task list endpoint with pagination parameters. Finally, it checks that the response status is 200 and that there are tasks in the response data.
     def test_list(self):
         task = TaskFactory.create_batch(50)

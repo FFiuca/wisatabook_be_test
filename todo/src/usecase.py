@@ -65,6 +65,13 @@ class TaskUseCaseImpl(TaskUseCase):
 
         return task
 
+    @transaction.atomic
+    def change_starred_status(self, id, starred_status):
+        cls = self.svc_task()
+        task = cls.change_starred_status(id, starred_status)
+
+        return task
+
     def detail(self, id):
         cls = self.svc_task()
         task = cls.detail(id)

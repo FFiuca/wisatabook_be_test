@@ -47,4 +47,7 @@ class TaskListForm(forms.Form):
 class TaskChangeStatusForm(forms.Form):
     status_id =  forms.IntegerField(required=True)
 
+class TaskChangeStarredStatusForm(forms.Form):
+    starred_status =  forms.IntegerField(required=True)
+
 

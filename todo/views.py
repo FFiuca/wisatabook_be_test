@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework import viewsets, mixins, generics, parsers
 from rest_framework.response import Response
 from rest_framework.decorators import action
-from .src.forms import TaskForm, TaskListForm, TaskChangeStatusForm
+from .src.forms import TaskForm, TaskListForm, TaskChangeStatusForm, TaskChangeStarredStatusForm
 from django.forms import ValidationError, model_to_dict
 from .src.usecase import TaskUseCaseImpl
 
@@ -63,6 +63,21 @@ class TaskView(viewsets.ViewSet):
 
         cls = TaskUseCaseImpl()
         data = cls.change_status(pk, form.cleaned_data['status_id'])
+
+        return Response(data={
+            'status': 200,
+            'data' : model_to_dict(data)
+        }, status=200)
+
+    def change_starred_status(self, request, pk=None):
+        data  = request.data
+
+        form = TaskChangeStarredStatusForm(data=data)
+        if form.is_valid() is False:
+            raise ValidationError("Validation error")
+
+        cls = TaskUseCaseImpl()
+        data = cls.change_starred_status(pk, form.cleaned_data['starred_status'])
 
         return Response(data={
             'status': 200,
