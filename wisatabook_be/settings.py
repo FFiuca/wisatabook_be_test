@@ -84,8 +84,8 @@ WSGI_APPLICATION = 'wisatabook_be.wsgi.application'
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.postgresql',
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql',
+        # 'ENGINE': 'django.db.backends.mysql',
         'HOST': env('DB_HOST'),
         'PORT': env('DB_PORT'),
         'PASSWORD': env('DB_PASSWORD'),

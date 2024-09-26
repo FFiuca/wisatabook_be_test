@@ -84,7 +84,7 @@ class FeatureTest(APITestCase):
 
     # This test case verifies the functionality of creating tasks and their repetitions. It creates a batch of tasks and associated task repetitions, then sends a POST request to the task list endpoint with pagination parameters. Finally, it checks that the response status is 200 and that there are tasks in the response data.
     def test_list(self):
-        task = TaskFactory.create_batch(20)
+        task = TaskFactory.create_batch(50)
         task_repeat = []
         for idx, val in enumerate(task):
             task_repeat.append(TaskRepeatFactory.create_batch(3, task=val))
