@@ -3,6 +3,7 @@ from master import models as m_master
 from . import service
 from django.db import transaction
 from . import serializer
+import datetime
 
 class TaskUseCase:
     def __init__(
@@ -94,3 +95,20 @@ class TaskUseCaseImpl(TaskUseCase):
         data = self.serializer(data, many=True)
         # print(data.data)
         return data.data
+
+    @transaction.atomic
+    def scheduler_repeated_task(self):
+        today = datetime.datetime.today().strftime("%Y-%m-%d")
+
+        cls = self.svc_task()
+        tasks = cls.get_repeated_task_by_date(today)
+        if len(tasks)>0:
+            for i in tasks:
+                print(i)
+                cls.add({
+                    'title': i.title+ ' (repeated)',
+                    'description': i.description,
+                    'starred_status': i.starred_status,
+                })
+
+        return tasks

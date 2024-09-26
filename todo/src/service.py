@@ -2,8 +2,9 @@ from .. import models
 from . import repositories
 from typing import List
 from django.db import models as m_django
-from helpers.common_helper import paginate_model
+from helpers.common_helper import paginate_model, day_of_week
 from master import models as m_master
+from datetime import datetime
 
 class TaskService(repositories.CRUDBase, repositories.ListBase):
 
@@ -72,6 +73,15 @@ class TaskService(repositories.CRUDBase, repositories.ListBase):
             return data
         else:
             return q.all()
+
+    def get_repeated_task_by_date(self, date):
+        data = self.task.objects.filter(
+                due_date__isnull=False,
+                due_date__gte=datetime.strptime(date, "%Y-%m-%d"),
+                task_to_task_repeat__day=day_of_week(date)
+            ).all()
+
+        return data
 
 
 class TaskRepeatService(repositories.AddBase):

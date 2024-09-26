@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "safedelete",
     "django_seed",
     "corsheaders",
+    "django_crontab",
 
     # apps
     "todo",
@@ -208,3 +209,8 @@ CORS_ALLOW_ALL_ORIGINS=True
 CORS_ALLOWED_ORIGIN_REGEXES = [
     r"^http://34.128.122.153$",
 ]
+
+# CRONTAB
+# CRONJOBS = [
+#     ('*/5 * * * *', 'myapp.tasks.my_scheduled_task'),  # Example: Run every 5 minutes
+# ]
