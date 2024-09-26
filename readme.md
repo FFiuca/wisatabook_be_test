@@ -70,6 +70,10 @@ The To-Do Application is a web-based system that allows users to create, manage,
 * Triggers: User clicks the "Update Starred Status" button on a task.
 * Description: The system updates the task's starred status.
 
+## Scheduler Feature
+
+The To-Do Application features a scheduler that runs every night to create new repeated tasks. This is achieved using a cron job that hits the command `python3 manage.py repeated_task_command` until the due date end. This ensures that repeated tasks are automatically created and added to the user's task list.
+
 ## System Architecture
 
 The To-Do Application is built using a layered architecture, with the following components:
